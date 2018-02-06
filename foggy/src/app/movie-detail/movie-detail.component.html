@@ -1,0 +1,11 @@
+<div *ngIf="movie">
+  <h2>{{ movie.title }}</h2>
+  <div><span>id: </span>{{movie.id}}</div>
+  <div>
+    <p>name: {{ movie.title }}</p>
+    <p>year: {{ movie.year }}</p>
+    <p>rating: {{ movie.rating }}</p>
+    <p>downloaded: {{ movie.downloaded }}</p>
+  </div>
+  <button (click)="download()">download</button>
+</div>

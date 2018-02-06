@@ -1,0 +1,31 @@
+<div id="search-component">
+  <h4>Foggy</h4>
+  <input #searchBox id="search-box" (keyup)="search(searchBox.value)" />
+
+  <div *ngIf="movie">
+    <a routerLink="/detail/{{movie.id}}">
+      <div class="module movie">
+        <h4>{{movie.title}} {{movie.year}} </h4>
+      </div>
+    </a>
+<!--
+  <ul class="movies">
+    <li *ngFor="let movie of movies$ | async">
+      <a routerLink="/detail/{{movie.id}}">
+        <span class="badge">{{movie.id}}</span> {{movie.title}}
+      </a>
+    </li>
+  </ul>
+-->
+</div>
+
+<!--
+  <ul class="search-result">
+    <li *ngFor="let movie of movies$ | async">
+      <a routerLink="/detail/{{movie.id}}">
+        {{movie.title}}
+      </a>
+    </li>
+  </ul>
+</div>
+-->
