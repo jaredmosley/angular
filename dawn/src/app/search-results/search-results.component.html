@@ -1,0 +1,10 @@
+<div *ngFor="let movie of results$ | async">
+  <h4> {{movie?.Title }} ({{movie?.Year}})</h4>
+  <div *ngIf="movie?.Poster !== 'N/A'">
+    <img src="{{ movie?.Poster }}" alt="Movie Poster">
+  </div>
+  <button (click)="getTorrents(movie?.imdbID)">torrents</button>
+  <div *ngIf="movie?.imdbID === selectedMovie">
+    <app-torrent-results></app-torrent-results>
+  </div>
+</div>

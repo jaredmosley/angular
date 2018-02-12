@@ -1,23 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
+import { RarbgService } from './rarbg.service';
+import { OmdbService } from './omdb.service';
 
 import { AppComponent } from './app.component';
 import { OmdbSearchComponent } from './omdb-search/omdb-search.component';
-import { OmdbService } from './omdb.service';
+import { SearchResultsComponent } from './search-results/search-results.component';
+import { SearchComponent } from './search/search.component';
+import { TorrentResultsComponent } from './torrent-results/torrent-results.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    OmdbSearchComponent
+    OmdbSearchComponent,
+    SearchResultsComponent,
+    SearchComponent,
+    TorrentResultsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule
   ],
-  providers: [ OmdbService ],
+  providers: [ HttpClientModule, OmdbService, RarbgService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

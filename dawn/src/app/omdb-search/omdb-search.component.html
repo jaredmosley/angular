@@ -1,9 +1,5 @@
 <div id="search-component">
-  <h4> OMDB Search</h4>
-  <input #searchBox type="text" id="search-box" (keyup.enter)="getMovie(searchBox.value)" placeholder="tt0068646"/>
-  <div *ngIf="movie$ | async; let movie">
-    <h2> {{ movie?.Title }} Details</h2>
-    <p>Rating: {{ movie?.Rating }} </p>
-    <p>Year: {{ movie?.Year }} </p>
-  </div>
+  <input #searchBox type="text" id="search-box" (keyup.enter)="search(searchBox.value)" placeholder="bourne identity"/>
 </div>
+
+<app-search-results></app-search-results>

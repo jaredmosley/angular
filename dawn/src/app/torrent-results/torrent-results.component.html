@@ -1,0 +1,6 @@
+<div *ngFor="let torrent of results$ | async">
+  <p>Filename: {{ torrent?.filename }}</p>
+  <p>Format: {{ torrent?.category.substring(7, 11) }}</p>
+  <p>Resolution: {{ torrent?.category.substring(12) }}</p>
+  <button (click)="download(torrent?.download)">Download</button>
+</div>
