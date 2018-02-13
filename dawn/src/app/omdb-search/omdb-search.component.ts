@@ -10,7 +10,7 @@ import { SearchResultsComponent } from '../search-results/search-results.compone
   selector: 'app-omdb-search',
   templateUrl: './omdb-search.component.html',
   styleUrls: ['./omdb-search.component.css'],
-  providers: [OmdbService]
+  providers: [ OmdbService ]
 })
 export class OmdbSearchComponent implements OnInit {
 

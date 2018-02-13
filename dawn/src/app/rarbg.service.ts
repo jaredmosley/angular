@@ -14,10 +14,12 @@ export class RarbgService {
   private rarbgUrl = 'http://localhost:1337/torrentapi.org/pubapi_v2.php';
   private session = {'token': '', 'timestamp': 0};
 
-  torrents$: Observable<RARBGTorrent[]>;
-  private torrentsSubject: Subject<any> = new Subject();
+  results$: Observable<RARBGTorrent[]>;
+  private torrentsSubject: Subject<RARBGTorrent[]> = new Subject();
 
   constructor(private http: HttpClient) {
+    this.results$ = this.torrentsSubject.asObservable();
+
     if (Date.now() - this.session['timestamp'] > 600) {
       this.updateSession().
         subscribe(
@@ -27,7 +29,6 @@ export class RarbgService {
         );
     }
 
-    this.torrents$ = this.torrentsSubject.asObservable();
   }
 
   search (id: string): void { // Observable<RARBGSearchResults> {
@@ -47,9 +48,13 @@ export class RarbgService {
     // return the search results
     this.http.get<RARBGSearchResults>(
       this.rarbgUrl,
-      {params: {'mode': 'search', 'search_imdb': `${id}`, 'token': `${this.session['token']}`}}).
-      subscribe(results => {
-        this.torrentsSubject.next(results.torrent_results);
+      {params: {'mode': 'search', 'search_imdb': `${id}`, 'token': `${this.session['token']}`}}
+    ).
+      subscribe(res => {
+        this.torrentsSubject.next(
+          res.torrent_results
+        );
+        console.log(`torrents received: ${res.torrent_results}`);
       }
     );
       /*

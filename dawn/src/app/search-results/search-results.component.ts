@@ -14,7 +14,7 @@ import { RARBGTorrent } from '../rarbg';
   selector: 'app-search-results',
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.css'],
-  providers: [RarbgService]
+  providers: [ OmdbService, RarbgService ]
 })
 export class SearchResultsComponent implements OnInit {
 
@@ -30,8 +30,8 @@ export class SearchResultsComponent implements OnInit {
     this.subscriptions.add(
       this.omdbService.results$
       .subscribe(
-        results => {
-          this.results$ = of(results);
+        res => {
+          this.results$ = of(res);
         }
       )
     );
@@ -40,7 +40,7 @@ export class SearchResultsComponent implements OnInit {
 
   getTorrents(id: string): void {
     this.selectedMovie = id;
-    console.log(`searching rarbg for: ${id}`);
+    console.log(`searching rarbg for: ${this.selectedMovie}`);
     this.rarbgService.search(id);
   }
 }

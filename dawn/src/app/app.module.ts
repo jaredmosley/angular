@@ -10,6 +10,7 @@ import { OmdbSearchComponent } from './omdb-search/omdb-search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchComponent } from './search/search.component';
 import { TorrentResultsComponent } from './torrent-results/torrent-results.component';
+import { DummyComponent } from './dummy/dummy.component';
 
 
 @NgModule({
@@ -18,13 +19,14 @@ import { TorrentResultsComponent } from './torrent-results/torrent-results.compo
     OmdbSearchComponent,
     SearchResultsComponent,
     SearchComponent,
-    TorrentResultsComponent
+    TorrentResultsComponent,
+    DummyComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule
   ],
-  providers: [ HttpClientModule, OmdbService, RarbgService ],
+  providers: [ HttpClientModule, RarbgService, OmdbService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

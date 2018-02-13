@@ -9,6 +9,7 @@ import { OmdbService } from './omdb.service';
 import { OmdbSearchComponent } from './omdb-search/omdb-search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchComponent } from './search/search.component';
+import { DummyComponent } from './dummy/dummy.component';
 import { TorrentResultsComponent } from './torrent-results/torrent-results.component';
 
 describe('AppComponent', () => {
@@ -23,6 +24,7 @@ describe('AppComponent', () => {
         OmdbSearchComponent,
         SearchResultsComponent,
         SearchComponent,
+        DummyComponent,
         TorrentResultsComponent
       ],
       providers: [
